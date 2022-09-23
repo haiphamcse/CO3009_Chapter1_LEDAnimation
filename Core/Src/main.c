@@ -96,26 +96,26 @@ int main(void)
     /* USER CODE END WHILE */
 	  if(i == 0)
 	  	  {
-	  		  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin, 1 ) ;
-	  		  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin, 1 ) ;
-	  		  HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin, 0 ) ;
+	  		  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin, 0 ) ;
+	  		  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin, 0 ) ;
+	  		  HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin, 1 ) ;
 	  		  HAL_Delay(5000);
 
 	  		  i++;
 	  	  }
 	  else if(i == 1)
 	  	  {
-	  		  HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin, 1 ) ;
-	  		  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin, 0 ) ;
-	  		  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin, 1 ) ;
+	  		  HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin, 0 ) ;
+	  		  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin, 1 ) ;
+	  		  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin, 0 ) ;
 	  		  HAL_Delay(2000);
 	  		  i++;
 	  	  }
 	  else if(i == 2)
 	  	  {
-			  HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin, 1 ) ;
-			  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin, 1 ) ;
-			  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin, 0 ) ;
+			  HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin, 0 ) ;
+			  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin, 0 ) ;
+			  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin, 1 ) ;
 			  HAL_Delay(3000);
 			  i = 0;
 	  	  }
