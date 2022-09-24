@@ -49,7 +49,10 @@
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
-void display7SEG(int);
+void clearAllClock();
+void setNumberOnClock(int);
+void clearNumberClock(int);
+void setClock();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -95,12 +98,8 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  HAL_GPIO_WritePin(GPIOA, 0xffff, 0);
-	  for(int i = 0; i < 12; i++) {
-		  HAL_Delay(250);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4 << i, 1);
-	  }
-	  HAL_Delay(255);
+	  setClock();
+	  HAL_Delay(250);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -172,6 +171,38 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void clearAllClock()
+{
+	HAL_GPIO_WritePin(GPIOA, 0xffff, 0);
+	//Why this works?
+}
+
+void setNumberOnClock(int num)
+{
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4 << num, 1);
+}
+
+void clearNumberClock(int num) {
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4 << num, 0);
+}
+
+void setClock() {
+	static int second = 11;
+	static int minute = 11;
+	static int hour = 11;
+
+	second = (second==11)? 0:second+1;
+	if(second == 0) {
+		minute = (minute==11)? 0:minute+1;
+		if(minute == 0) {
+			hour = (hour==11)? 0:hour+1;
+		}
+	}
+	clearAllClock();
+	setNumberOnClock(second);
+	setNumberOnClock(minute);
+	setNumberOnClock(hour);
+}
 /*USER CODE END 4 */
 
 /**
