@@ -87,6 +87,7 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
   int counter = 0;
+  int state = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -94,9 +95,46 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  if(counter >= 10) counter = 0;
-	  display7SEG(counter++);
-	  HAL_Delay(1000);
+	  if(state == 0)
+	  {
+		  counter = 7;
+		  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, 1);
+		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, 0);
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, 0);
+		  while(counter >= 0)
+		  {
+			  display7SEG(counter--);
+			  HAL_Delay(1000);
+		  }
+		  state++;
+	  }
+	  else if(state == 1)
+	  {
+		  counter = 3;
+		  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, 0);
+		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, 1);
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, 0);
+		  while(counter >= 0)
+		  {
+			  display7SEG(counter--);
+			  HAL_Delay(1000);
+		  }
+		  state++;
+	  }
+	  else
+	  {
+		  counter = 5;
+		  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, 0);
+		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, 1);
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, 0);
+		  while(counter >= 0)
+		  {
+			  display7SEG(counter--);
+			  HAL_Delay(1000);
+		  }
+		  state = 0;
+	  }
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
