@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under BSD 3-Clause license,
@@ -49,7 +49,7 @@
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
-void display7SEG(int);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -93,14 +93,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-
-	  HAL_GPIO_WritePin(GPIOA, 0xffff, 0);
+	  HAL_GPIO_WritePin(GPIOA, 0xffff, 1);
 	  for(int i = 0; i < 12; i++) {
 		  HAL_Delay(250);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4 << i, 1);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4 << i, 0);
 	  }
 	  HAL_Delay(255);
+    /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -172,7 +172,8 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-/*USER CODE END 4 */
+
+/* USER CODE END 4 */
 
 /**
   * @brief  This function is executed in case of error occurrence.

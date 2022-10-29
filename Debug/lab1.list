@@ -107,13 +107,13 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
  800015a:	f000 f85f 	bl	800021c <MX_GPIO_Init>
+
+  /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-
-	  HAL_GPIO_WritePin(GPIOA, 0xffff, 0);
- 800015e:	2200      	movs	r2, #0
+	  HAL_GPIO_WritePin(GPIOA, 0xffff, 1);
+ 800015e:	2201      	movs	r2, #1
  8000160:	f64f 71ff 	movw	r1, #65535	; 0xffff
  8000164:	480e      	ldr	r0, [pc, #56]	; (80001a0 <main+0x54>)
  8000166:	f000 fbfd 	bl	8000964 <HAL_GPIO_WritePin>
@@ -124,12 +124,12 @@ int main(void)
 		  HAL_Delay(250);
  8000170:	20fa      	movs	r0, #250	; 0xfa
  8000172:	f000 f975 	bl	8000460 <HAL_Delay>
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4 << i, 1);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4 << i, 0);
  8000176:	2210      	movs	r2, #16
  8000178:	687b      	ldr	r3, [r7, #4]
  800017a:	fa02 f303 	lsl.w	r3, r2, r3
  800017e:	b29b      	uxth	r3, r3
- 8000180:	2201      	movs	r2, #1
+ 8000180:	2200      	movs	r2, #0
  8000182:	4619      	mov	r1, r3
  8000184:	4806      	ldr	r0, [pc, #24]	; (80001a0 <main+0x54>)
  8000186:	f000 fbed 	bl	8000964 <HAL_GPIO_WritePin>
@@ -144,7 +144,7 @@ int main(void)
 	  HAL_Delay(255);
  8000196:	20ff      	movs	r0, #255	; 0xff
  8000198:	f000 f962 	bl	8000460 <HAL_Delay>
-	  HAL_GPIO_WritePin(GPIOA, 0xffff, 0);
+	  HAL_GPIO_WritePin(GPIOA, 0xffff, 1);
  800019c:	e7df      	b.n	800015e <main+0x12>
  800019e:	bf00      	nop
  80001a0:	40010800 	.word	0x40010800
