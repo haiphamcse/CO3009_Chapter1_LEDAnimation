@@ -221,13 +221,13 @@ int main(void)
  8000204:	2120      	movs	r1, #32
  8000206:	480f      	ldr	r0, [pc, #60]	; (8000244 <main+0xf8>)
  8000208:	f000 fc82 	bl	8000b10 <HAL_GPIO_WritePin>
-		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, 1);
- 800020c:	2201      	movs	r2, #1
+		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, 0);
+ 800020c:	2200      	movs	r2, #0
  800020e:	2140      	movs	r1, #64	; 0x40
  8000210:	480c      	ldr	r0, [pc, #48]	; (8000244 <main+0xf8>)
  8000212:	f000 fc7d 	bl	8000b10 <HAL_GPIO_WritePin>
-		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, 0);
- 8000216:	2200      	movs	r2, #0
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, 1);
+ 8000216:	2201      	movs	r2, #1
  8000218:	2180      	movs	r1, #128	; 0x80
  800021a:	480a      	ldr	r0, [pc, #40]	; (8000244 <main+0xf8>)
  800021c:	f000 fc78 	bl	8000b10 <HAL_GPIO_WritePin>

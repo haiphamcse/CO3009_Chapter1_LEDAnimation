@@ -125,8 +125,8 @@ int main(void)
 	  {
 		  counter = 5;
 		  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, 0);
-		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, 1);
-		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, 0);
+		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, 0);
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, 1);
 		  while(counter >= 0)
 		  {
 			  display7SEG(counter--);
