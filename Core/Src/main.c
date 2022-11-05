@@ -192,6 +192,7 @@ void setClock() {
 			hour = (hour==11)? 0:hour+1;
 		}
 	}
+	//Set timer to standard and /5
 	clearAllClock();
 	setNumberClock(second);
 	setNumberClock(minute);
