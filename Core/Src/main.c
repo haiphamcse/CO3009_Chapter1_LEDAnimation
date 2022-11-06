@@ -57,7 +57,9 @@ void setClock();
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+static int second = 0;
+static int minute = 0;
+static int hour = 0;
 /* USER CODE END 0 */
 
 /**
@@ -181,22 +183,23 @@ void clearNumberClock(int num) {
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4 << num, 1);
 }
 void setClock() {
-	static int second = 11;
-	static int minute = 11;
-	static int hour = 11;
 
-	second = (second==11)? 0:second+1;
-	if(second == 0) {
-		minute = (minute==11)? 0:minute+1;
-		if(minute == 0) {
-			hour = (hour==11)? 0:hour+1;
-		}
+
+	if(second == 60){
+		second = 0;
+		minute++;
+	}
+	if(minute == 60)
+	{
+		minute = 0;
+		hour = (hour+1)%12;
 	}
 	//Set timer to standard and /5
 	clearAllClock();
-	setNumberClock(second);
-	setNumberClock(minute);
-	setNumberClock(hour);
+	setNumberClock(second/5);
+	setNumberClock(minute/5);
+	setNumberClock(hour/5);
+	second++;
 }
 /* USER CODE END 4 */
 
