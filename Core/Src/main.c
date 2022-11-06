@@ -198,7 +198,7 @@ void setClock() {
 	clearAllClock();
 	setNumberClock(second/5);
 	setNumberClock(minute/5);
-	setNumberClock(hour/5);
+	setNumberClock(hour);
 	second++;
 }
 /* USER CODE END 4 */
