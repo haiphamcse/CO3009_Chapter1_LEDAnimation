@@ -100,7 +100,6 @@ int main(void)
 	  		  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin, 1 ) ;
 	  		  HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin, 0 ) ;
 	  		  HAL_Delay(5000);
-
 	  		  i++;
 	  	  }
 	  else if(i == 1)
