@@ -93,16 +93,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin, 0);
-	  HAL_GPIO_WritePin(GPIOA, LED_GREEN_Pin, 1);
+	  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin, 1);
+	  HAL_GPIO_WritePin(GPIOA, LED_GREEN_Pin, 0);
 	  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_Pin, 1);
 	  while(counter <= 5)
 	  {
 		  if(counter < 3)
 		  {
-			  HAL_GPIO_WritePin(GPIOA, LED_RED1_Pin, 1);
-			  HAL_GPIO_WritePin(GPIOA, LED_GREEN1_Pin, 0);
+			  HAL_GPIO_WritePin(GPIOA, LED_RED1_Pin, 0);
+			  HAL_GPIO_WritePin(GPIOA, LED_GREEN1_Pin, 1);
 			  HAL_GPIO_WritePin(GPIOA, LED_YELLOW1_Pin, 1);
+
 		  }
 		  else
 		  {
@@ -110,20 +111,19 @@ int main(void)
 			  HAL_GPIO_WritePin(GPIOA, LED_GREEN1_Pin, 1);
 			  HAL_GPIO_WritePin(GPIOA, LED_YELLOW1_Pin, 0);
 		  }
-		  display7SEG(counter++);
+		  display7SEG(5 - counter++);
 		  HAL_Delay(1000);
 	  }
 	  counter = 0;
-	  HAL_GPIO_WritePin(GPIOA, LED_RED1_Pin, 0);
-	  HAL_GPIO_WritePin(GPIOA, LED_GREEN1_Pin, 1);
-
+	  HAL_GPIO_WritePin(GPIOA, LED_RED1_Pin, 1);
+	  HAL_GPIO_WritePin(GPIOA, LED_GREEN1_Pin, 0);
 	  HAL_GPIO_WritePin(GPIOA, LED_YELLOW1_Pin, 1);
 	  while(counter <= 5)
 	  {
 		  if(counter < 3)
 		  {
-			  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin, 1);
-			  HAL_GPIO_WritePin(GPIOA, LED_GREEN_Pin, 0);
+			  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin, 0);
+			  HAL_GPIO_WritePin(GPIOA, LED_GREEN_Pin, 1);
 			  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_Pin, 1);
 		  }
 		  else
@@ -132,7 +132,7 @@ int main(void)
 			  HAL_GPIO_WritePin(GPIOA, LED_GREEN_Pin, 1);
 			  HAL_GPIO_WritePin(GPIOA, LED_YELLOW_Pin, 0);
 		  }
-		  display7SEG(counter++);
+		  display7SEG(5 - counter++);
 		  HAL_Delay(1000);
 	  }
 	  counter = 0;
